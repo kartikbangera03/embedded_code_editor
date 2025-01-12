@@ -20,7 +20,7 @@ export function loadSavedCode(e){
             files: [
                 {
                 "name": name,
-                "content": savedCode ? savedCode : "print('Welcome')"
+                "content": savedCode ? savedCode : "print('Hello, World!')"
                 }
             ]
         }, "*");
