@@ -5,4 +5,9 @@
 *{
     margin: 0;
     padding: 0;
+    transition: all 0.5s ease-in;
+}
+
+iframe{
+    transition: all 0.5s ease-in;
 }

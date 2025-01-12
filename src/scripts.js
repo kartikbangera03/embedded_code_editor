@@ -1,41 +1,33 @@
-export function runCode (){
-    console.log("Running Code on First Component Render")
-    
-    var iFrame = document.querySelector("#myIframe");
+const name ="main.py"
 
-    iFrame.contentWindow.postMessage({
-        eventType: 'triggerRun'
-    }, "*");
-   
+export function getStoredCode(){
+    return localStorage.getItem(name)
+} 
+
+export function updateStoredCode(newCode){
+    localStorage.setItem(name, newCode);
+    return
 }
 
-export function populateCode(name){
-    console.log("Populating Code  ......")
-    const savedCode = localStorage.getItem(name);
-  
-    var iFrame = document.querySelector("#myIframe");
-    console.log("Saved Code : ")    
-    console.log(name)
-    console.log(savedCode)
+export function loadSavedCode(e){
+    const iFrame = document.querySelector("#embeddedIframe")
+    const savedCode = getStoredCode();
 
-    if (savedCode) {
-        console.log("Replacing Code.....")
+    setTimeout(function(){
         iFrame.contentWindow.postMessage({
-                eventType: 'populateCode',
-                language: "python",
-                files: [
+            eventType: 'populateCode',
+            language: 'python',
+            files: [
                 {
                 "name": name,
-                "content": savedCode
+                "content": savedCode ? savedCode : "print('Welcome')"
                 }
             ]
         }, "*");
-    }
-    
-
-    iFrame.contentWindow.postMessage({
-        eventType: 'triggerRun'
-    }, "*");
-    
-    
+    },200)
 }
+
+
+
+
+
