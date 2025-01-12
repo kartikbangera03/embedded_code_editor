@@ -6,6 +6,7 @@ function ToggleThemeSwitch() {
     const {themeMode , lightTheme , darkTheme  } = useTheme()
 
     const onThemeChange = (e) =>{
+
         const darkModeStatus = e.currentTarget.checked 
         if(darkModeStatus){
             darkTheme()
@@ -19,6 +20,7 @@ function ToggleThemeSwitch() {
         checked = {themeMode ==='dark'} 
         onChange = {onThemeChange}  
         inputProps={{ 'aria-label': 'controlled' }}
+        
         sx={{ m: 1 }}  />
   )
 }

@@ -8,7 +8,7 @@ function MUINavBar({children}) {
   return (
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
-        <Toolbar className='flex justify-between px-4 py-2 dark:bg-gray-900'>
+        <Toolbar className='flex justify-between px-4 py-2 dark:bg-slate-800'>
           {children}
         </Toolbar>
       </AppBar>
